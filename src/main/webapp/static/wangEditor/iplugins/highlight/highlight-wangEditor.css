@@ -1,0 +1,42 @@
+/**
+ * Highlighter-wangEditor-plugin
+ *
+ * Highlighter-wangEditor-plugin is donationware. Welcome to use and contact us.
+ *
+ * @author:Leaf
+ * QQ:182397814
+ *
+ * @version
+ * 0.2 (2018/08/20)
+ *
+ * @copyright
+ * Copyright (C) 2018 IT路-锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷之路.
+ * http://www.aitlu.com
+ * QQ Group:450968368
+ */
+pre,code{
+    background: #2c333b;
+}
+pre code{
+    padding-top: 10px;
+}
+.w-e-text pre {
+    position: relative;
+    margin-bottom: 24px;
+    border-radius: 3px;
+    background: #2c333b;
+    overflow: hidden;
+}
+
+.w-e-text code {
+    display: block;
+    overflow-y: auto;
+    font-weight: 300;
+    font-family: Menlo, monospace;
+    font-size:0.9em;
+    background-color: #2c333b;
+}
+.hljs ol li{
+    /*margin-left: 30px;*/
+    list-style-type: decimal-leading-zero;
+}
