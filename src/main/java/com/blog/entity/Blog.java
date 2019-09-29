@@ -107,6 +107,4 @@ public class Blog implements Serializable{
 	public void setBlogCount(Integer blogCount) {
 		this.blogCount = blogCount;
 	}
-	
-	
 }

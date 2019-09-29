@@ -175,6 +175,12 @@
       <version>1.0.6</version>
     </dependency>
 
+      <dependency>
+          <groupId>com.alibaba</groupId>
+          <artifactId>fastjson</artifactId>
+          <version>1.2.61</version>
+      </dependency>
+
     <!--添加lucen支持-->
     <dependency>
       <groupId>org.apache.lucene</groupId>
@@ -238,12 +244,21 @@
           <version>2.10.0.pr1</version>
       </dependency>
 
+
     <dependency>
-      <groupId>com.gitee.qdbp.thirdparty</groupId>
-      <artifactId>ueditor</artifactId>
-      <version>1.4.3.3</version>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.8</version>
+      <scope>provided</scope>
     </dependency>
 
+
+    <!--阿里巴巴 OSS-->
+    <dependency>
+      <groupId>com.aliyun.oss</groupId>
+      <artifactId>aliyun-sdk-oss</artifactId>
+      <version>3.5.0</version>
+    </dependency>
   </dependencies>
 
   <build>

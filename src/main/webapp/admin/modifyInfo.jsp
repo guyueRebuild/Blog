@@ -10,10 +10,6 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js"></script>
 
-
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/wangEditor/wangEditor-2.1.23.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/wangEditor/iplugins/wangEditor_fullscreen_plugin.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/xss/xss.js"></script>
     <script type="text/javascript">
 
         /**提交博主信息*/
@@ -23,11 +19,11 @@
             var proFile=editor.txt.html();
             // var proFile=UE.getEditor("editor").getContent();
 
-            if(nickName==null||nickName==""){
+            if(nickName==null||nickName===""){
                 $.messager.alert("系统提示","请输入昵称！");
-            }else if(sign==null||sign==""){
+            }else if(sign==null||sign===""){
                 $.messager.alert("系统提示","请输入个性签名！");
-            }else if(proFile==null||proFile==""){
+            }else if(proFile==null||proFile===""){
                 $.messager.alert("系统提示","请输入简介！");
             }else{
                 $("#profile").val(proFile);

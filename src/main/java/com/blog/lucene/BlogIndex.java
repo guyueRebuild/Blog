@@ -43,6 +43,7 @@ import com.blog.util.StringUtil;
  */
 public class BlogIndex {
 	private Directory dir = null;
+	//TODO:部署时需要更换路径
 	private String lucenePath = "C://lucene";
 	
 	/**

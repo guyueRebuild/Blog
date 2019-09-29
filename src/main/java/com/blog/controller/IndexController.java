@@ -59,7 +59,7 @@ public class IndexController {
 
         //获取该条件下博客总数
         long total = blogService.getTotal(map);
-        mav.addObject("mainPage", "foreground/blog/k.jsp");
+        mav.addObject("mainPage", "foreground/blog/list.jsp");
 
         //组装分页模块
         String pageCode = PageUtil.getPagination(request.getContextPath() + "/index.html", total, Integer.parseInt(page), 10, param.toString());

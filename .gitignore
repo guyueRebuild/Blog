@@ -3,6 +3,9 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 logs/
 out/
+src/main/resources/jdbc.properties
+src/main/resources/oss.properties
+
 !**/src/main/**
 !**/src/test/**
 ### STS ###

@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
+
+<script src="${pageContext.request.contextPath}/static/editor.md-master/editormd.js"></script>
+<script src="${pageContext.request.contextPath}/static/editor.md-master/lib/marked.min.js"></script>
+<script src="${pageContext.request.contextPath}/static/editor.md-master/lib/prettify.min.js"></script>
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/static/editor.md-master/css/editormd.preview.min.css">
 
 <script type="text/javascript">
 /**显示所有的评论*/
@@ -17,9 +24,9 @@ function loadimage(){
 function submitData(){
 	var content=$("#content").val();
 	var imageCode=$("#imageCode").val();
-	if(content==null||content==''){
+	if(content==null||content===''){
 		alert("请输入评论内容！");
-	}else if(imageCode==null||imageCode==''){
+	}else if(imageCode==null||imageCode===''){
 		alert("请填写验证码！");
 	}else{
 		$.post("${pageContext.request.contextPath}/comment/save.do",
@@ -66,10 +73,22 @@ function query1(keyWord){
 			&nbsp;&nbsp;阅读：${blog.clickHit}
 			&nbsp;&nbsp;评论：${blog.replyHit}
 		</div>
-		
-		<div class="blog_content">
-			${blog.content}
+		<!--内容-->
+		<div class="blog_content" id="blog-markdown-view">
+			<textarea style="display:none;" >${blog.content}</textarea>
 		</div>
+
+		<script type="text/javascript">
+			$(function() {
+				var testView = editormd.markdownToHTML("blog-markdown-view", {
+					htmlDecode      : "style,script,iframe",  // you can filter tags decode
+					emoji           : true,
+					taskList        : true,
+					tex             : true  // 默认不解析
+				});
+			});
+		</script>
+
 		<div class="blog_keyWord">
 			<font><strong>关键字：</strong></font>
 			<c:choose>

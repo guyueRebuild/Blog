@@ -42,9 +42,7 @@
                 and date_format(releaseDate,'%Y年%m月') like #{releaseDateStr}
             </if>
         </where>
-        <if test="releaseDateStr!=null and releaseDateStr != ''">
             order by releaseDate desc
-        </if>
         <if test="start!=null and size != null">
             limit #{start},#{size}
         </if>

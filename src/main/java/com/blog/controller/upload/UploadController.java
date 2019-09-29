@@ -1,31 +1,45 @@
 package com.blog.controller.upload;
 
-import com.blog.service.FileUploadService;
+import com.blog.dto.FileDTO;
+import com.blog.provider.AliyunProvider;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import com.blog.upload.ImageUploadMessage;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.List;
 
 @Controller
-@RequestMapping("/com/blog/upload")
 public class UploadController {
 
-    private final FileUploadService fileUploadService;
+    private final AliyunProvider aliyunProvider;
 
-    public UploadController(FileUploadService fileUploadService) {
-        this.fileUploadService = fileUploadService;
+    public UploadController(AliyunProvider aliyunProvider) {
+        this.aliyunProvider = aliyunProvider;
     }
 
-    @RequestMapping(value = "/images",method = RequestMethod.POST)
+    @RequestMapping(value = "/upload/image")
     @ResponseBody
-    public ImageUploadMessage images(@RequestParam("myFileName") List<MultipartFile> imgList, HttpServletRequest request) throws IOException {
-        return fileUploadService.uploadEditorImage(imgList, request);
+    public FileDTO images(HttpServletRequest request) throws IOException {
+        MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
+        MultipartFile file = multipartHttpServletRequest.getFile("editormd-image-file");
+        try {
+            if (file != null) {
+                String url = aliyunProvider.upload(file.getInputStream(), file.getOriginalFilename());
+                FileDTO fileDTO = new FileDTO();
+                fileDTO.setSuccess(1);
+                fileDTO.setUrl(url);
+                return fileDTO;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
+
+
 }
