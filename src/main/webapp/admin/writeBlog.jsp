@@ -40,6 +40,9 @@
         });
 
 
+
+
+
         /**发布博客*/
         function submitData() {
             var content = mdEditor.getMarkdown();       // 获取 Markdown 源码

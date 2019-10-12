@@ -1,0 +1,19 @@
+package com.blog.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
+
+@RestController
+public class ErrorController {
+
+    @RequestMapping(path = "/error")
+    public Map<String, Object> handle(HttpServletRequest request) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("message", "XXXXXX");
+        return map;
+    }
+}
